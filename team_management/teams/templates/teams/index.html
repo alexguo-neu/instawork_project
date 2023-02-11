@@ -1,0 +1,29 @@
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <title>teams</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="{% static 'teams/style/index.css' %}">
+</head>
+<body>
+    <div>Team members</div>
+    <div>You have {{people_list.count}} team members</div>
+    {% if people_list %}
+        <ul>
+        {% for people in people_list %}
+            <a href="{% url 'teams:detail' people.id %}">
+                <div>
+                    {{ people.first_name }} {{ people.last_name }}
+                </div>
+                <div> {{ people.phone }}</div>
+                <div> {{ people.email }}</div>
+            </a>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>No team memebers</p>
+    {% endif %}
+
+</body>
+</html>
