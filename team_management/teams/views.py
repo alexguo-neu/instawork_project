@@ -33,6 +33,8 @@ class DetailView(generic.DetailView):
                     form = PeopleModelForm(request.POST, instance=people)
                     if form.is_valid():
                         form.save()
+                    else:
+                        return render(request, self.template_name, {"form": form})
             elif 'del' in request.POST:
                 if people is not None:
                     people.delete()
