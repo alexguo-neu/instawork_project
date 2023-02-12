@@ -1,29 +1,41 @@
-<html lang="en">
-<head>
-    {% load static %}
-    <meta charset="UTF-8">
-    <title>teams</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
+{% extends 'teams/base.html' %}
+{% load static %}
+{% block style %}
     <link rel="stylesheet" type="text/css" href="{% static 'teams/style/index.css' %}">
-</head>
-<body>
-    <div>Team members</div>
-    <div>You have {{people_list.count}} team members</div>
-    {% if people_list %}
-        <ul>
-        {% for people in people_list %}
-            <a href="{% url 'teams:detail' people.id %}">
-                <div>
-                    {{ people.first_name }} {{ people.last_name }}
-                </div>
-                <div> {{ people.phone }}</div>
-                <div> {{ people.email }}</div>
-            </a>
-        {% endfor %}
-        </ul>
-    {% else %}
-        <p>No team memebers</p>
-    {% endif %}
+{% endblock %}
 
-</body>
-</html>
+{% block content %}
+    <div class="container">
+        <div class="addBtnContainer">
+            <a class="addBtn" href="{% url 'teams:add'%}">+</a>
+        </div>
+        <div class="title">Team members</div>
+        <div class="subtitle">You have {{people_list.count}} team members</div>
+        {% if people_list %}
+            <div class="contentContainer">
+            {% for people in people_list %}
+                <div class="dividingLine"></div>
+                <div class="subContainer">
+                    <div class="avatar"></div>
+
+                    <a class="peopleContainer" href="{% url 'teams:detail' people.id %}">
+                        <div class="name">
+                            {{ people.first_name }} {{ people.last_name }}
+                            {% if people.role == "A" %}
+                                <span>(Admin)</span>
+                            {% endif %}
+                        </div>
+                        <div class="phone"> {{ people.phone }}</div>
+                        <div class="email"> {{ people.email }}</div>
+
+                    </a>
+                </div>
+
+            {% endfor %}
+            </div>
+        {% else %}
+            <p>No team memebers</p>
+        {% endif %}
+    </div>
+
+{% endblock %}

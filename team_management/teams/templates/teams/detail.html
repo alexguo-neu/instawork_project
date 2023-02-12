@@ -1,27 +1,37 @@
-<html lang="en">
-<head>
-    {% load static %}
-    <meta charset="UTF-8">
-    <title>teams</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <link rel="stylesheet" type="text/css" href="{% static 'teams/style/style.css' %}">
-</head>
-<body>
-    <div>Add a team member</div>
-    <div>Set email, location and role</div>
+{% extends 'teams/base.html' %}
+{% load static %}
+{% block style %}
+    <link rel="stylesheet" type="text/css" href="{% static 'teams/style/detail.css' %}">
+{% endblock %}
 
+{% block content %}
+    <div class="title">Edit a team member</div>
+    <div class="subtitle">Set Contact info, location and role</div>
+
+    <div class="dividingLine"></div>
     <form action="." method="post">
-    {% csrf_token %}
-        <div>Info</div>
-        <input type="text" name="first_name" value="{{people.first_name}}" placeholder="Please enter your first name">
-        <input type="text" name="last_name" value="{{people.last_name}}" placeholder="Please enter your last name">
-        <input type="text" name="email" value="{{people.email}}" placeholder="Please enter your email">
-        <input type="text" name="phone" value="{{people.phone}}" placeholder="Please enter your phone number">
+        {% csrf_token %}
+         <div class="itemTitle">Info</div>
+         <div class="formGroup">
+             {{ form.first_name }}
+             {{ form.last_name }}
+             {{ form.email }}
+             {{ form.phone }}
+        </div>
+        <div class="itemTitle">Role</div>
+        <div class="formRadio">
+            {% for radio in form.role %}
+                <label class="radioContainer" for="{{radio.id_for_label}}">
+                    {{ radio.choice_label }}
+                    <span class="radio">{{ radio.tag }}</span>
+                </label>
+                <div class="dividingLine"></div>
+            {% endfor %}
+        </div>
 
-        <div>Role</div>
-
-        <input type="submit" value="Delete" name="del">
-        <input type="submit" value="Save" name="edit">
+        <div class="btnGroup">
+            <input class="deleteBtn" type="submit" value="Delete" name="del">
+            <input class="saveBtn" type="submit" value="Save" name="edit">
+        </div>
     </form>
-</body>
-</html>
+{% endblock %}

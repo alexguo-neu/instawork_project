@@ -1,0 +1,65 @@
+.addBtnContainer {
+    display: flex;
+    justify-content: right;
+}
+
+.addBtn {
+    margin-right: 5px;
+    color: #0455bf;
+    font-size: 30px;
+    text-decoration: none;
+}
+
+.title {
+    font-size: 20px;
+    margin-left: 5px;
+    color: #232323;
+}
+
+.subtitle {
+    margin-left: 5px;
+    color: #cecece;
+}
+
+.contentContainer {
+    margin-top: 20px;
+    padding: 0 5px;
+}
+
+
+.dividingLine {
+    margin: 10px 0;
+    background-color: #cecece;
+    height: 1px;
+}
+
+.avatar {
+    width: 50px;
+    height: 50px;
+    background: url("../images/default-avatar.png");
+    background-size: 100% 100%;
+    border-radius: 50%;
+}
+
+.subContainer {
+    display: flex;
+    margin: 20px 5px;
+}
+
+.peopleContainer {
+    margin-left: 10px;
+    text-decoration: none;
+}
+
+.name {
+    color: #232323;
+}
+
+.phone,
+.email {
+    color: #cecece;
+    margin-top: 5px;
+}
+
+
+

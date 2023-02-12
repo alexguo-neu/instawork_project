@@ -17,13 +17,15 @@ class People(models.Model):
     email = models.CharField(max_length=200)
     phone = models.CharField(max_length=200)
 
-    class Role(models.TextChoices):
-        REGULAR = 'R'
-        ADMIN = 'A'
+    Type_SELECT = (
+        ('R', "Regular - Can't delete members"),
+        ('A', 'Admin - Can delete members')
+    )
 
     role = models.CharField(
         max_length=1,
-        choices=Role.choices,
+        choices=Type_SELECT,
+        default='R'
     )
 
     def __str__(self):
