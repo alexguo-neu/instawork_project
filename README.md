@@ -36,8 +36,7 @@ python manage.py runserver
 ![img.png](screenshots/validation_lastname.png)
 ![img.png](screenshots/validation_email.png)
 ![img.png](screenshots/validation_invalidEmail.png)
-![img.png](screenshots/phone.png)
-
+![img.png](screenshots/validation_Invalidphone.png)
 ## Future Improvements:
 
 1. Validation: 
@@ -46,7 +45,7 @@ I plan to improve the validation process to make it more robust and ensure the d
 2. Paging: 
 To improve the user experience, I plan to add paging to the start page of the project which will allow for better navigation and faster processing of data.
 
-3. User Interface: 
+3. User Interface:
 In order to make the project more accessible and user-friendly, I plan to add more UI elements and improvements to enhance the overall user experience.
 
 4. Testing:
