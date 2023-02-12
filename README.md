@@ -51,6 +51,9 @@ In order to make the project more accessible and user-friendly, I plan to add mo
 4. Testing:
 I plan to implement automated testing to increase the efficiency of the testing process and ensure that the project remains stable and reliable over time
 
+5. UI Templates and SCSS: 
+In future releases, I plan to import UI templates and SCSS to improve the overall look and feel of the application.
+
 ## Estimated time spent
 
 Based on my initial assessment, I estimate that I spent a total of 12 hours on the project, including 4 hours dedicated to gaining a basic understanding of the Django framework and 8 hours dedicated to working on the project itself.
