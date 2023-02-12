@@ -1,0 +1,42 @@
+{% extends 'teams/base.html' %}
+{% load static %}
+{% block style %}
+    <link rel="stylesheet" type="text/css" href="{% static 'teams/style/detail.css' %}">
+{% endblock %}
+
+{% block content %}
+    {% block title %}
+    {% endblock %}
+
+    <div class="dividingLine"></div>
+    <form action="." method="post">
+        {% csrf_token %}
+         <div class="itemTitle">Info</div>
+         <div class="formGroup">
+             {{ form.first_name }}
+             {{ form.last_name }}
+             {{ form.email }}
+             {{ form.phone }}
+             {% if form.phone.errors %}
+                {% for error in form.phone.errors %}
+                <div class="errorAlert">
+                    {{ error }}
+                </div>
+                {% endfor %}
+             {% endif %}
+        </div>
+        <div class="itemTitle">Role</div>
+        <div class="formRadio">
+            {% for radio in form.role %}
+                <label class="radioContainer" for="{{radio.id_for_label}}">
+                    {{ radio.choice_label }}
+                    <span class="radio">{{ radio.tag }}</span>
+                </label>
+                <div class="dividingLine"></div>
+            {% endfor %}
+        </div>
+
+        {% block button %}
+        {% endblock %}
+    </form>
+{% endblock %}

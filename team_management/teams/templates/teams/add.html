@@ -1,34 +1,13 @@
-{% extends 'teams/base.html' %}
-{% load static %}
-{% block style %}
-    <link rel="stylesheet" type="text/css" href="{% static 'teams/style/detail.css' %}">
-{% endblock %}
+{% extends 'teams/baseForm.html' %}
 
-{% block content %}
-<form action='.' method='POST'>
+{% block title %}
     <div class="title">Add a team member</div>
     <div class="subtitle">Set email, location and role</div>
-
-    <div class="dividingLine"></div>
-    {% csrf_token %}
-     <div class="itemTitle">Info</div>
-     <div class="formGroup">
-         {{ form.first_name }}
-         {{ form.last_name }}
-         {{ form.email }}
-         {{ form.phone }}
-    </div>
-    <div class="itemTitle">Role</div>
-    <div class="formRadio">
-        {% for radio in form.role %}
-            <label class="radioContainer" for="{{radio.id_for_label}}">
-                {{ radio.choice_label }}
-                <span class="radio">{{ radio.tag }}</span>
-            </label>
-            <div class="dividingLine"></div>
-        {% endfor %}
-    </div>
-
-    <input class="saveBtn" type='submit' value='Save' />
-</form>
 {% endblock %}
+
+{% block button %}
+<div class="btnContainer">
+   <input class="saveBtn" type='submit' value='Save' />
+</div>
+{% endblock %}
+

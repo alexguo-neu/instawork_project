@@ -50,6 +50,6 @@ class createView(View):
         form = PeopleModelForm(request.POST)
         if form.is_valid():
             form.save()
-        return HttpResponseRedirect(reverse('teams:index'))
-
-
+            return HttpResponseRedirect(reverse('teams:index'))
+        else:
+            return render(request, self.template_name, {"form": form})
