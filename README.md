@@ -1,4 +1,6 @@
 # instawork_project
+Name: Xiaoxu Guo
+Email: guo.xiaox@northeastern.edu
 
 This is a simple team-member management application that allows the user to view, edit, add, and delete team members. 
 
